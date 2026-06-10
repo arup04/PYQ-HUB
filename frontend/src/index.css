@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --color-brand-indigo: #6366f1;
+  --color-brand-purple: #a855f7;
+  --color-brand-pink: #ec4899;
+}
+
+/* Custom styles and utilities */
+body {
+  @apply font-sans bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 min-h-screen overflow-x-hidden;
+}
+
+/* Root sizing resets from default index.css */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Glassmorphism Styles */
+.glass-card {
+  @apply bg-white/70 backdrop-blur-md border border-slate-200/50 shadow-xl shadow-slate-100/40 
+         dark:bg-slate-900/60 dark:border-slate-800/40 dark:shadow-none;
+}
+
+.glass-sidebar {
+  @apply bg-white/80 backdrop-blur-lg border-r border-slate-200/40 
+         dark:bg-slate-900/80 dark:border-slate-800/40;
+}
+
+.neon-glow-blue {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.25);
+}
+
+.neon-glow-purple {
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-800 rounded-full;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-slate-700;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
